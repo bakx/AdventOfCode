@@ -46,8 +46,9 @@ for line in f:
         # Add Location to dictionary
         locations.setdefault(santaLocation, currentLocation)
 
-    for key in locations.keys():
-        house = locations.get(key)
-        print "" + getattr(house, "_location") + " has " + str(getattr(house, "_presents")) + " presents!"
+    # for key in locations.keys():
+    #    house = locations.get(key)
+    #    print "" + getattr(house, "_location") + " has " + str(getattr(house, "_presents")) + " presents!"
 
-    print "Amount of houses with presents " + str(locations.items().__len__())
+    print line
+    print "Amount of houses with presents " + str(locations.items().__len__()) + "\n"
