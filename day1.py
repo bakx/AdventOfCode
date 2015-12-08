@@ -21,3 +21,5 @@ for line in f:
     print line
     print "Entered basement first on character: " + enteredBasement
     print "Ended on floor: " + str(currentLevel)
+
+f.close()

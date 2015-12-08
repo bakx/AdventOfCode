@@ -63,3 +63,5 @@ for line in f:
 
 print "Found " + str(validWordCount) + " valid words."
 print "Found " + str(invalidWordCount) + " invalid words."
+
+f.close()

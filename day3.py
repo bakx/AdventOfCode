@@ -52,3 +52,5 @@ for line in f:
 
     print line
     print "Amount of houses with presents: " + str(locations.items().__len__())
+
+f.close()

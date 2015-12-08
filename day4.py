@@ -27,3 +27,6 @@ for line in f:
                 break
 
     print "Done"
+
+f.close()
+

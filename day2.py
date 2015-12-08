@@ -46,3 +46,5 @@ for line in f:
 print "\n"
 print "Total Paper required is: " + str(requiredPaper)
 print "Total Ribbon required is: " + str(requiredRibbon)
+
+f.close()
