@@ -16,55 +16,37 @@ for i in xrange(96, 96+27):
         keyPhrasesRequired[key] = 0
 
 
-def has_key_phrase(word, keyPhrases):
-    _foundPhrases = False
+def validate_word(word):
 
-    # Initial check to see if there are at least 2 items of any phrase in the word
+    for i in xrange(0,  word.__len__() - 2):
+        if word[i:i+2] == word[i+3:i+4]:
+            return False, "Failed due overlapping"
+
+    _hasRepeat = has_repeat_character(word)
+    _hasDouble = False
+
     for fp in keyPhrasesRequired:
         if word.count(fp) > 1:
-            # Initial check passes
-            _foundPhrases = True
+            _hasDouble = True
 
-            # Is this a phrase that has identical characters?
-            if fp[0] == fp[1]:
+    if _hasRepeat[0] and _hasDouble:
+        return True, "Ok"
 
-                # Check the first phrase for overlapping
-                _firstMatch = word.find(fp)
+    return False, ""
 
-                if word[_firstMatch + 2] == fp[0]:
-                    return False, "Failed due overlapping " + fp[0]
 
-                # Check the first phrase for overlapping
-                _secondMatch = word.find(fp, _firstMatch)
+def has_repeat_character(word):
+    for i in xrange(0,  word.__len__() - 2):
+        if word[i] == word[i + 2]:
+            return True, "OK"
 
-                # Check if the second match is at the end of the string. If so, no overlapping check needed.
-                # This check is mandatory since it will also prevent access errors.
-                if word.__len__() - 1 >= _secondMatch + 2:
-                    if word[_secondMatch + 2] == fp[0]:
-                        return False, "Failed due overlapping " + fp[0]
-
-            # It contains at least one letter which repeats with exactly one letter between them
-            _hasRepeatCharacter = False
-
-            for i in xrange(0,  word.__len__() - 1):
-                if i + 2 < word.__len__() - 1:         # 3 is used here due character indexing starting at 0
-                    if word[i] == word[i + 2]:      # check the the item 2 characters down from original position is matching
-                        _hasRepeatCharacter = True
-                        break
-
-            if not _hasRepeatCharacter:
-                return False, "No repeated characters with exactly one letter in between"
-
-    if not _foundPhrases:
-        return False, "No repeated phrase found"
-
-    return True, "Validated"
+    return False, "No repeated string"
 
 
 def valid_word(word):
 
     # Does the word contains at least one letter that appears twice in a row?
-    _has_key_phrase = has_key_phrase(word, keyPhrasesRequired)
+    _has_key_phrase = validate_word(word)
     if not _has_key_phrase[0]:
         return False, "Rule: Key phrase error. " + _has_key_phrase[1]
 
@@ -90,3 +72,5 @@ for line in f:
 
 print "Found " + str(validWordCount) + " valid words."
 print "Found " + str(invalidWordCount) + " invalid words."
+
+f.close()
