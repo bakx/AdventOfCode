@@ -1,6 +1,6 @@
 from day3_classes import *
 
-f = open('day3.txt', 'r')
+f = open('./input/day3.txt', 'r')
 for line in f:
     charNumber = 0              # Current character that we're processing
     santaLocation = Character(0, 0, "Santa")         # Location of Santa (x, y)

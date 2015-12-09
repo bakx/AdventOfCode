@@ -1,6 +1,6 @@
 import hashlib
 
-f = open('day4.txt', 'r')
+f = open('./input/day4.txt', 'r')
 for line in f:
 
     # Trim input

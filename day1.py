@@ -1,4 +1,4 @@
-f = open('day1.txt', 'r')
+f = open('./input/day1.txt', 'r')
 for line in f:
     charNumber = 0
     currentLevel = 0

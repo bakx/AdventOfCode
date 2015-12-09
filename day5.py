@@ -45,7 +45,7 @@ def valid_word(word):
     return True, "Validated"
 
 
-f = open('day5.txt', 'r')
+f = open('./input/day5.txt', 'r')
 for line in f:
 
     # Trim input

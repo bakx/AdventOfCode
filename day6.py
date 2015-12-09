@@ -39,7 +39,7 @@ def handle_instruction(instruction):
                     grid[x, y] = 1
 
 
-f = open('day6.txt', 'r')
+f = open('./input/day6.txt', 'r')
 for line in f:
 
     # Trim input

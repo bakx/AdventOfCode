@@ -1,6 +1,3 @@
-import math
-
-
 class Present:
     def __init__(self, size):
         self._size = size.split('x')
@@ -30,7 +27,7 @@ class Present:
 requiredPaper = 0
 requiredRibbon = 0
 
-f = open('day2.txt', 'r')
+f = open('./input/day2.txt', 'r')
 for line in f:
     currentPresent = Present(line)
     paperForPresent = currentPresent.get_total()
