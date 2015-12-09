@@ -29,16 +29,14 @@ def handle_instruction(instruction):
 
             if instruction.startswith("turn off"):
                 grid[x, y] = 0
-                continue
-
             elif instruction.startswith("turn on"):
                 grid[x, y] = 1
-                continue
-
             else:
                 # Toggle light
-                grid[x, y] = 1 if grid[x, y] == 0 else 1
-                continue
+                if grid[x, y] == 1:
+                    grid[x, y] = 0
+                else:
+                    grid[x, y] = 1
 
 
 f = open('day6.txt', 'r')
@@ -54,7 +52,6 @@ lightsOn = 0
 
 for key in grid:
     if grid[key] == 1:
-        #print str(key) + " is on"
         lightsOn += 1
 
 print str(lightsOn) + " lights turned on"
