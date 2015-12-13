@@ -18,8 +18,8 @@ for i in xrange(97, 97+26):
 
 def validate_word(word):
 
-    for i in xrange(0,  word.__len__() - 2):
-        if word[i:i+2] == word[i+3:i+4]:
+    for _i in xrange(0,  word.__len__() - 2):
+        if word[_i:_i+2] == word[_i+3:_i+4]:
             return False, "Failed due overlapping"
 
     _hasRepeat = has_repeat_character(word)
@@ -36,8 +36,8 @@ def validate_word(word):
 
 
 def has_repeat_character(word):
-    for i in xrange(0,  word.__len__() - 2):
-        if word[i] == word[i + 2]:
+    for _i in xrange(0,  word.__len__() - 2):
+        if word[_i] == word[_i + 2]:
             return True, "OK"
 
     return False, "No repeated string"

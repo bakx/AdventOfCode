@@ -24,19 +24,19 @@ def handle_instruction(instruction):
     _range_y[1] = int(_ranges[1].split(',')[1])
 
     # At this point, we know the ranges.
-    for x in xrange(_range_x[0], _range_x[1] + 1):
-        for y in xrange(_range_y[0], _range_y[1] + 1):
+    for _x in xrange(_range_x[0], _range_x[1] + 1):
+        for _y in xrange(_range_y[0], _range_y[1] + 1):
 
             if instruction.startswith("turn off"):
-                grid[x, y] = 0
+                grid[_x, _y] = 0
             elif instruction.startswith("turn on"):
-                grid[x, y] = 1
+                grid[_x, _y] = 1
             else:
                 # Toggle light
-                if grid[x, y] == 1:
-                    grid[x, y] = 0
+                if grid[_x, _y] == 1:
+                    grid[_x, _y] = 0
                 else:
-                    grid[x, y] = 1
+                    grid[_x, _y] = 1
 
 
 f = open('./input/day6.txt', 'r')
