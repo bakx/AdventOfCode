@@ -6,7 +6,7 @@ validWordCount = 0
 invalidWordCount = 0
 
 # Initialize array with the alphabet
-for i in xrange(96, 96+27):
+for i in xrange(97, 97+26):
     key = chr(i) + chr(i)
     keyPhrasesRequired[key] = 0
 

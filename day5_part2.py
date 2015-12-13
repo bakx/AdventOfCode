@@ -5,13 +5,13 @@ validWordCount = 0
 invalidWordCount = 0
 
 # Initialize array with the alphabet
-for i in xrange(96, 96+27):
+for i in xrange(97, 97+27):
     key = chr(i)
     alphabet[key] = 0
 
 # Initialize array with all key phrases that are required
-for i in xrange(96, 96+27):
-    for n in xrange(96, 96+27):
+for i in xrange(97, 97+26):
+    for n in xrange(97, 97+26):
         key = chr(i) + chr(n)
         keyPhrasesRequired[key] = 0
 
