@@ -2,30 +2,23 @@ values = {}
 
 
 def binary_and(value1, value2):
-    _bin1 = str(bin(value1)).lstrip("0b").rjust(16, "0")  # Make sure it is 16 bit
-    _bin2 = str(bin(value2)).lstrip("0b").rjust(16, "0")  # Make sure it is 16 bit
-    return int(_bin1, 2) & int(_bin2, 2)
+    return value1 & value2
 
 
 def binary_or(value1, value2):
-    _bin1 = str(bin(value1)).lstrip("0b").rjust(16, "0")  # Make sure it is 16 bit
-    _bin2 = str(bin(value2)).lstrip("0b").rjust(16, "0")  # Make sure it is 16 bit
-    return int(_bin1, 2) | int(_bin2, 2)
+    return value1 | value2
 
 
 def binary_not(decimal_value):
-    _bin = ~decimal_value
-    return _bin & 0xffff
+    return ~decimal_value & 0xffff
 
 
 def binary_shift_left(decimal_value, n):
-    _bin = str(bin(decimal_value)).lstrip("0b").rjust(16, "0")  # Make sure it is 16 bit
-    return int(_bin, 2) << n & 0xffff
+    return decimal_value << n
 
 
 def binary_shift_right(decimal_value, n):
-    _bin = str(bin(decimal_value)).lstrip("0b").rjust(16, "0")  # Make sure it is 16 bit
-    return int(_bin, 2) >> n & 0xffff
+    return decimal_value >> n
 
 
 def make_keys(instruction):
