@@ -8,6 +8,12 @@ def handle_instruction(instruction):
 
     # a -> b
     if _instructions.__len__() == 3:
+
+        # Line already has a signal
+        if values.has_key(_instructions[2]):
+            print _instructions[2] + " already has a signal"
+            return True
+
         # Transferring a digit to a wire?
         if _instructions[0].isdigit():
             values[_instructions[2]] = int(_instructions[0])
@@ -30,6 +36,11 @@ def handle_instruction(instruction):
 
         if (not _instructions[0].isdigit() and not values.has_key(_instructions[0])) or (not _instructions[2].isdigit() and not values.has_key(_instructions[2])):
             return False
+
+        # Line already has a signal
+        if values.has_key(_instructions[4]):
+            print _instructions[4] + " already has a signal"
+            return True
 
         if _instructions[1] == "AND":
             value1 = _instructions[0] if _instructions[0].isdigit() else values.get(_instructions[0])
@@ -61,12 +72,20 @@ def handle_instruction(instruction):
     return False
 
 
-f = open('./input/day7.txt', 'r')
-for line in f:
-    instructions.insert(instructions.__len__(), line.strip())
-f.close()
+def reset_wires():
+
+    f = open('./input/day7.txt', 'r')
+    for line in f:
+        instructions.insert(instructions.__len__(), line.strip())
+    f.close()
+
+
+# Init
+reset_wires()
 
 i = 0
+reset_count = 0
+part2 = True
 
 while instructions.__len__() > 0:
 
@@ -79,6 +98,24 @@ while instructions.__len__() > 0:
 
     if i >= instructions.__len__():
         i = 0
+
+    if reset_count == 0 and values.has_key("a") and part2:
+
+        # Reset the instructions
+        instructions = []
+        reset_wires()
+
+        # Get the value from wire a
+        wire_a = values.get("a")
+
+        # Reset all values
+        values.clear()
+
+        # Add the value for wire b
+        values["b"] = wire_a
+
+        # Increase reset count to prevent endless loops
+        reset_count += 1
 
 
 for key in sorted(values):
