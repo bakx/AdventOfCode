@@ -41,16 +41,16 @@ def handle_instruction(_instruction):
     _city2 = _instruction[2]
     _distance = int(_instruction[4])
 
-    if not locations.has_key(_city1):
+    if not _city1 in locations:
         locations[_city1] = {}
 
-    if not locations.has_key(_city2):
+    if not _city2 in locations:
         locations[_city2] = {}
 
-    if not locations[_city1].has_key(_city2):
+    if not _city2 in locations[_city1]:
         locations[_city1][_city2] = _distance
 
-    if not locations[_city2].has_key(_city1):
+    if not _city1 in locations[_city2]:
         locations[_city2][_city1] = _distance
 
 
@@ -79,7 +79,7 @@ for route in all_routes:
             travel.add_destination(_source)
 
         # Check if their is a flight from source location to destination
-        if locations[_source].has_key(_target):
+        if _target in locations[_source]:
 
             # Add the target
             travel.add_destination(_target)
