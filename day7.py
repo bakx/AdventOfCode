@@ -37,11 +37,6 @@ def handle_instruction(instruction):
         if (not _instructions[0].isdigit() and not values.has_key(_instructions[0])) or (not _instructions[2].isdigit() and not values.has_key(_instructions[2])):
             return False
 
-        # Line already has a signal
-        if values.has_key(_instructions[4]):
-            print _instructions[4] + " already has a signal"
-            return True
-
         if _instructions[1] == "AND":
             value1 = _instructions[0] if _instructions[0].isdigit() else values.get(_instructions[0])
             value2 = _instructions[2] if _instructions[2].isdigit() else values.get(_instructions[2])
