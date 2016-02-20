@@ -95,3 +95,4 @@ for travel in paths:
 sorted_paths = sorted(all_paths, key=all_paths.__getitem__)
 print "Shorted trip: " + sorted_paths[0] + " with a distance of " + str(all_paths[sorted_paths[0]])
 print "Longest trip: " + sorted_paths[sorted_paths.__len__() - 1] + " with a distance of " + str(all_paths[sorted_paths[sorted_paths.__len__() - 1]])
+print "Total amount of routes: " + str(sorted_paths.__len__())

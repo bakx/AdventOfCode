@@ -26,7 +26,7 @@ namespace ConsoleApplication1
             // Read the file
             string line = string.Empty;
 
-            StreamReader reader = new StreamReader("input.txt");
+            StreamReader reader = new StreamReader("./input/day6.txt");
             while (!reader.EndOfStream)
                 HandleInstruction(ref grid, reader.ReadLine());
 
